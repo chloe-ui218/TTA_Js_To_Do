@@ -6,6 +6,7 @@ function createTask(title, description, category){
         category,
         completed: false,
 
+
         toggleCompleted() {
             this.completed = !this.completed;
         },
@@ -32,24 +33,86 @@ function createTask(title, description, category){
     }
 }
 
+function createWorkTask(title, description, deadline){
+    let task = createTask(title, description, "Work");
+    return {
+        ...task,
+        deadline,
+
+        toggleCompleted(){
+            task.toggleCompleted();
+        },
+
+        displayDetails(){
+            task.displayDetails();
+            console.log(`\tDeadline: ${this.deadline}`);
+        }
+    }
+}
+
+function createPersonalTask(title, description, priority){
+    let task = createTask(title, description, "Personal");
+    return{
+        ...task,
+        priority,
+
+        toogleCompleted(){
+            task.toggleCompleted();
+        },
+
+        displayDetails(){
+            task.displayDetails();
+            console.log(`\tPriority: ${this.property}`);
+        }
+    }
+}
+
 let task1 = createTask("Buy groceries", "Get milk, eggs, and bread from the store.", "Shopping");
-task1.displayDetails();
 
-task1.toggleCompleted();
-console.log("| \t New Task Details \t |");
+console.log("+-------------------------------------------------------------------------------------+")
 task1.displayDetails();
+console.log("+-------------------------------------------------------------------------------------+")
 
-task1.updateTitle("Buy groceries - 1");
-console.log("\t Updated Task Details \t");
-task1.displayDetails();
+let task2 = createWorkTask("complete report", "Finish the report for the meeting", "Friday");
+console.log("Work Related Task")
+console.log("+----------------------------------------------------------------------------------------+")
+task2.displayDetails();
+console.log("+----------------------------------------------------------------------------------------+")
 
-task1.updateDescription("1. Get milk, eggs, and bread from the store.");
-console.log("\t Updated Task Details \t");
-task1.displayDetails();
+task2.toggleCompleted();
+console.log("+----------------------------------------------------------------------------------------+")
+task2.displayDetails();
+console.log("+----------------------------------------------------------------------------------------+")
 
-task1.updateCategory("shopping - 1");
-console.log("\t Updated Task Details \t");
-task1.displayDetails();
+let task3 = createPersonalTask("Call mom", "Call mom and ask her to buy milk.", "High");
+console.log("Personal Related Task");
+console.log("+----------------------------------------------------------------------------------------+");
+task3.displayDetails();
+console.log("+----------------------------------------------------------------------------------------+");
+
+task3.toogleCompleted();
+console.log("+----------------------------------------------------------------------------------------+");
+task3.displayDetails();
+console.log("+----------------------------------------------------------------------------------------+");
+
+
+// normal task
+// task1.toggleCompleted();
+// console.log("| \t New Task Details \t |");
+// task1.displayDetails();
+
+// task1.updateTitle("Buy groceries - 1");
+// console.log("\t Updated Task Details \t");
+// task1.displayDetails();
+
+// task1.updateDescription("1. Get milk, eggs, and bread from the store.");
+// console.log("\t Updated Task Details \t");
+// task1.displayDetails();
+
+// task1.updateCategory("shopping - 1");
+// console.log("\t Updated Task Details \t");
+// task1.displayDetails();
+// End normal task
 
 // task1.toggleCompleted();
 // console.log("| \t New Task Details \t |");
