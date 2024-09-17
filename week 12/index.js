@@ -100,3 +100,14 @@ function createTask(title, description, category){
     console.log("+----------------------------------------------------------------------------------------+");
     task3.displayDetails();
     console.log("+----------------------------------------------------------------------------------------+");
+
+    let tasks = [task1, task2, task3];
+
+    console.log("All Tasks");
+    console.log("+----------------------------------------------------------------------------------------+");
+    tasks.forEach(task => {
+        // task.displayDetails();
+        displayTaskDetails(task);
+        console.log("\n")
+    })
+    console.log("+----------------------------------------------------------------------------------------+");
